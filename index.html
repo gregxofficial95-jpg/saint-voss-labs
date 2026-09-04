@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saint Vöss Labs</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- =========================
+             INTRO / BRAND SCREEN
+        ========================== -->
+
+        <section class="intro-screen" id="brand-screen">
+
+            <div class="logo-glow"></div>
+
+            <h1 id="logo-text">
+                SAINT VÖSS LABS
+            </h1>
+
+        </section>
+
+
+        <!-- =========================
+             WEBSITE QUESTION
+        ========================== -->
+
+        <section class="question-screen" id="question-screen">
+
+            <p class="eyebrow">
+                SAINT VÖSS LABS
+            </p>
+
+            <h2>
+                NEED A WEBSITE?
+            </h2>
+
+            <div class="choice-buttons">
+
+               <button type="button" id="yes-btn">
+                    YES
+                </button>
+
+                <button type="button" id="no-btn">
+                    NO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             INITIALIZATION SCREEN
+        ========================== -->
+
+        <section class="loading-screen" id="loading-screen">
+
+            <div class="loader">
+
+                <div class="loader-ring">
+
+                    <div class="loader-content">
+
+                        <p class="loading-label">
+                            INITIALIZING LAB...
+                        </p>
+
+                        <span id="progress">
+                            0%
+                        </span>
+
+                        <p class="loading-status" id="loading-status">
+                            PREPARING YOUR EXPERIENCE
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             THE LAB
+        ========================== -->
+
+        <section class="lab-screen" id="lab-screen">
+
+            <header class="lab-header">
+
+                <div class="brand-small">
+                    <span class="v-mark">V</span>
+                    SAINT VÖSS LABS
+                </div>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+
+                <button class="menu-button" aria-label="Open menu">
+                    ☰
+                </button>
+
+            </header>
+
+
+            <div class="lab-content">
+
+                <p class="eyebrow">
+                    SAINT VÖSS LABS
+                </p>
+
+                <h2>
+                    THE LAB
+                </h2>
+
+                <p class="lab-subtitle">
+                    SELECT YOUR PROJECT
+                </p>
+
+
+                <!-- PROJECT CARDS -->
+
+                <div class="project-grid">
+
+                    <article class="project-card active">
+
+                        <span class="experiment-number">
+                            001
+                        </span>
+
+                        <div class="project-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            E-COMMERCE
+                        </h3>
+
+                        <p class="experiment-name">
+                            EXPERIMENT_001
+                        </p>
+
+                        <p class="project-description">
+                            Build something people can actually buy from.
+                        </p>
+
+                        <span class="project-arrow">
+                            →
+                        </span>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <span class="experiment-number">
+                            002
+                        </span>
+
+                        <div class="project-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            BUSINESS
+                        </h3>
+
+                        <p class="experiment-name">
+                            EXPERIMENT_002
+                        </p>
+
+                        <p class="project-description">
+                            Turn your business into a digital experience.
+                        </p>
+
+                        <span class="project-arrow">
+                            →
+                        </span>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <span class="experiment-number">
+                            003
+                        </span>
+
+                        <div class="project-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            CUSTOM WEB
+                        </h3>
+
+                        <p class="experiment-name">
+                            EXPERIMENT_003
+                        </p>
+
+                        <p class="project-description">
+                            Build exactly what you envision.
+                        </p>
+
+                        <span class="project-arrow">
+                            →
+                        </span>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <span class="experiment-number">
+                            004
+                        </span>
+
+                        <div class="project-icon">
+                            ☆
+                        </div>
+
+                        <h3>
+                            BRAND
+                        </h3>
+
+                        <p class="experiment-name">
+                            EXPERIMENT_004
+                        </p>
+
+                        <p class="project-description">
+                            Build a digital presence that stands out.
+                        </p>
+
+                        <span class="project-arrow">
+                            →
+                        </span>
+
+                    </article>
+
+                </div>
+
+
+                <div class="explore-hint">
+
+                    <span class="mouse-icon">
+                        ◯
+                    </span>
+
+                    <span>
+                        DRAG TO EXPLORE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+<!-- =========================
+     EXPERIMENT INTRO
+========================== -->
+
+<section class="experiment-screen" id="experiment-screen">
+
+    <div class="experiment-top">
+
+        <span id="experiment-number">
+            EXPERIMENT_001
+        </span>
+
+        <button type="button" id="back-to-lab">
+            ← BACK TO LAB
+        </button>
+
+    </div>
+
+
+    <div class="experiment-content">
+
+        <p class="eyebrow" id="experiment-category">
+            E-COMMERCE
+        </p>
+
+        <h2 id="experiment-title">
+            LET'S BUILD<br>
+            SOMETHING<br>
+            PEOPLE WANT.
+        </h2>
+
+        <p id="experiment-description">
+            A digital storefront designed to turn visitors
+            into customers.
+        </p>
+
+        <button type="button" id="begin-experiment">
+            BEGIN EXPERIMENT
+            <span>→</span>
+        </button>
+
+    </div>
+
+
+    <div class="experiment-meta">
+
+        <span>
+            SAINT VÖSS LABS
+        </span>
+
+       <span id="system-number">
+    SYSTEM / 001
+</span>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     QUESTIONNAIRE
+========================== -->
+
+<section class="questionnaire-screen" id="questionnaire-screen">
+
+    <div class="questionnaire-header">
+
+        <span id="questionnaire-experiment">
+            EXPERIMENT_001
+        </span>
+
+        <button type="button" id="exit-questionnaire">
+            ← EXIT
+        </button>
+
+    </div>
+
+
+    <div class="questionnaire-content">
+
+        <div class="question-info">
+
+            <span id="question-number">
+                01 / 07
+            </span>
+
+            <div class="progress-line">
+                <div id="progress-bar"></div>
+            </div>
+
+        </div>
+
+
+        <p class="question-category" id="question-category">
+            E-COMMERCE
+        </p>
+
+
+        <h2 id="question-title">
+            WHAT ARE YOU BUILDING?
+        </h2>
+
+
+        <p class="question-description" id="question-description">
+            Tell us what we're creating together.
+        </p>
+
+
+        <div class="answer-options" id="answer-options">
+
+    <!-- JavaScript creates normal answers here -->
+
+</div>
+
+<div class="text-answer" id="text-answer">
+
+    <textarea
+        id="project-notes"
+        placeholder="Tell us what you're imagining..."
+        maxlength="1000"
+    ></textarea>
+
+    <button type="button" id="continue-text">
+        CONTINUE →
+    </button>
+
+</div>
+
+<div class="budget-answer" id="budget-answer">
+
+    <div class="budget-value" id="budget-value">
+        ₦250,000
+    </div>
+
+    <input
+        type="range"
+        id="budget-slider"
+        min="50000"
+        max="1000000"
+        step="25000"
+        value="250000"
+    >
+
+    <div class="budget-range">
+
+        <span>₦50K</span>
+
+        <span>₦1M+</span>
+
+    </div>
+
+    <button
+        type="button"
+        id="continue-budget"
+    >
+        CONTINUE →
+    </button>
+
+</div>
+
+    </div>
+
+
+    <div class="questionnaire-footer">
+
+        <span>
+            SAINT VÖSS LABS
+        </span>
+
+        <span>
+            PROJECT INTAKE
+        </span>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PROJECT PROFILE
+========================== -->
+
+<section class="profile-screen" id="profile-screen">
+
+    <div class="profile-header">
+
+        <div>
+            <span class="profile-eyebrow">
+                SAINT VÖSS LABS
+            </span>
+
+            <h2>PROJECT PROFILE</h2>
+        </div>
+
+        <span id="profile-experiment">
+            EXPERIMENT_001
+        </span>
+
+    </div>
+
+
+    <div class="profile-status">
+        <span class="status-dot"></span>
+        SYSTEM ANALYSIS COMPLETE
+    </div>
+
+
+    <div class="profile-grid">
+
+        <div class="profile-item">
+
+            <span>01 / OBJECTIVE</span>
+
+            <p id="profile-answer-1">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item">
+
+            <span>02 / OFFER</span>
+
+            <p id="profile-answer-2">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item">
+
+            <span>03 / CORE FUNCTION</span>
+
+            <p id="profile-answer-3">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item">
+
+            <span>04 / AUDIENCE</span>
+
+            <p id="profile-answer-4">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item">
+
+            <span>05 / EXPERIENCE</span>
+
+            <p id="profile-answer-5">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item profile-notes">
+
+            <span>06 / PROJECT NOTES</span>
+
+            <p id="profile-answer-6">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="profile-item">
+
+            <span>07 / BUDGET</span>
+
+            <p id="profile-answer-7">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile-footer">
+
+        <span>
+            SAINT VÖSS LABS
+        </span>
+
+        <button type="button" id="transmit-project">
+            TRANSMIT PROJECT →
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     TRANSMISSION
+========================== -->
+
+<section class="transmission-screen" id="transmission-screen">
+
+    <div class="transmission-content">
+
+        <span class="transmission-label">
+            SAINT VÖSS LABS
+        </span>
+
+        <h2 id="transmission-status">
+            PREPARING BRIEF...
+        </h2>
+
+        <div class="transmission-line">
+            <div id="transmission-progress"></div>
+        </div>
+
+        <p id="transmission-detail">
+            PACKAGING PROJECT DATA
+        </p>
+
+    </div>
+
+</section>
+
+<section class="client-screen" id="client-screen">
+
+    <div class="client-content">
+
+        <span class="client-label">
+            SAINT VÖSS LABS
+        </span>
+
+        <p class="client-step">
+            FINAL STEP / CLIENT IDENTIFICATION
+        </p>
+
+        <h2>
+            WHO ARE<br>
+            WE BUILDING<br>
+            THIS FOR?
+        </h2>
+
+        <p class="client-description">
+            Give us your contact details so we can follow up on your project brief.
+        </p>
+
+        <div class="client-form">
+
+            <input
+                type="text"
+                id="client-name"
+                placeholder="YOUR NAME"
+                maxlength="100"
+            >
+
+            <input
+                type="email"
+                id="client-email"
+                placeholder="YOUR EMAIL"
+                maxlength="150"
+            >
+
+            <input
+                type="tel"
+                id="client-phone"
+                placeholder="PHONE / WHATSAPP (OPTIONAL)"
+                maxlength="30"
+            >
+
+            <button
+                type="button"
+                id="continue-client"
+            >
+                CONTINUE →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
