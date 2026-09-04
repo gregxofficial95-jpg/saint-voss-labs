@@ -5,6 +5,7 @@
 let selectedProject = "";
 let currentQuestion = 0;
 let userAnswers = [];
+const WEB3FORMS_KEY = "d434d16c-3256-449f-bebb-20d2c697ff5a";
 
 const systemNumber =
     document.getElementById("system-number");
@@ -1127,11 +1128,15 @@ transmitProject.addEventListener("click", () => {
     clientName.focus();
 });
 
-continueClient.addEventListener("click", () => {
+continueClient.addEventListener("click", async () => {
 
     const name = clientName.value.trim();
     const email = clientEmail.value.trim();
     const phone = clientPhone.value.trim();
+
+    /* ========================================
+       VALIDATE CLIENT DETAILS
+    ======================================== */
 
     if (name === "") {
         clientName.focus();
@@ -1143,6 +1148,38 @@ continueClient.addEventListener("click", () => {
         return;
     }
 
+
+    /* ========================================
+       BUILD PROJECT BRIEF
+    ======================================== */
+
+    const projectBrief = `
+SAINT VÖSS LABS — NEW PROJECT
+
+CLIENT
+Name: ${name}
+Email: ${email}
+Phone / WhatsApp: ${phone || "Not provided"}
+
+PROJECT
+Type: ${selectedProject}
+Experiment: ${experimentData[selectedProject].number}
+
+PROJECT ANSWERS
+1. ${userAnswers[0] || "—"}
+2. ${userAnswers[1] || "—"}
+3. ${userAnswers[2] || "—"}
+4. ${userAnswers[3] || "—"}
+5. ${userAnswers[4] || "—"}
+6. ${userAnswers[5] || "—"}
+7. ${userAnswers[6] || "—"}
+`;
+
+
+    /* ========================================
+       SHOW TRANSMISSION SCREEN
+    ======================================== */
+
     showScreen(transmissionScreen);
 
     transmissionStatus.textContent =
@@ -1151,62 +1188,108 @@ continueClient.addEventListener("click", () => {
     transmissionDetail.textContent =
         "PACKAGING PROJECT DATA";
 
-    transmissionProgress.style.width = "20%";
-
-    setTimeout(() => {
-        transmissionStatus.textContent =
-            "TRANSMITTING...";
-
-        transmissionDetail.textContent =
-            "ESTABLISHING SECURE CHANNEL";
-
-        transmissionProgress.style.width = "55%";
-    }, 1200);
-
-    setTimeout(() => {
-        transmissionStatus.textContent =
-            "BRIEF RECEIVED";
-
-        transmissionDetail.textContent =
-            "PROJECT DATA SUCCESSFULLY TRANSMITTED";
-
-        transmissionProgress.style.width = "100%";
-    }, 2600);
-
-});
-
-
-    transmissionDetail.textContent =
-        "PACKAGING PROJECT DATA";
-
     transmissionProgress.style.width =
         "20%";
 
 
-    setTimeout(() => {
+    /* ========================================
+       SEND TO WEB3FORMS
+    ======================================== */
+
+    try {
+
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    access_key: WEB3FORMS_KEY,
+
+                    subject:
+                        `NEW SAINT VÖSS PROJECT — ${selectedProject}`,
+
+                    from_name:
+                        "SAINT VÖSS LABS",
+
+                    email:
+                        email,
+
+                    message:
+                        projectBrief
+
+                })
+            }
+        );
+
+
+        const result = await response.json();
+
+
+        /* ========================================
+           SUCCESS
+        ======================================== */
+
+        if (result.success) {
+
+            setTimeout(() => {
+
+                transmissionStatus.textContent =
+                    "TRANSMITTING...";
+
+                transmissionDetail.textContent =
+                    "ESTABLISHING SECURE CHANNEL";
+
+                transmissionProgress.style.width =
+                    "55%";
+
+            }, 700);
+
+
+            setTimeout(() => {
+
+                transmissionStatus.textContent =
+                    "BRIEF RECEIVED";
+
+                transmissionDetail.textContent =
+                    "PROJECT DATA SUCCESSFULLY TRANSMITTED";
+
+                transmissionProgress.style.width =
+                    "100%";
+
+            }, 2200);
+
+
+        } else {
+
+            throw new Error(
+                "Submission failed"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Web3Forms error:",
+            error
+        );
 
         transmissionStatus.textContent =
-            "TRANSMITTING...";
+            "TRANSMISSION FAILED";
 
         transmissionDetail.textContent =
-            "ESTABLISHING SECURE CHANNEL";
+            "PLEASE TRY AGAIN";
 
         transmissionProgress.style.width =
-            "55%";
+            "0%";
 
-    }, 1200);
+    }
 
-
-    setTimeout(() => {
-
-        transmissionStatus.textContent =
-            "BRIEF RECEIVED";
-
-        transmissionDetail.textContent =
-            "PROJECT DATA SUCCESSFULLY TRANSMITTED";
-
-        transmissionProgress.style.width =
-            "100%";
-
-    }, 2600);
-
+});
