@@ -7,6 +7,7 @@ let currentQuestion = 0;
 let userAnswers = [];
 const WEB3FORMS_KEY = "d434d16c-3256-449f-bebb-20d2c697ff5a";
 
+
 const systemNumber =
     document.getElementById("system-number");
 
@@ -20,6 +21,76 @@ const loadingScreen = document.getElementById("loading-screen");
 const labScreen = document.getElementById("lab-screen");
 const questionnaireScreen =
     document.getElementById("questionnaire-screen");
+
+
+const menuButton = document.querySelector(".menu-button");
+
+const menuOverlay = document.getElementById("menu-overlay");
+
+const closeMenu = document.getElementById("close-menu");
+
+const menuItems = document.querySelectorAll(".menu-item");
+
+const aboutScreen = document.getElementById("about-screen");
+
+const contactScreen = document.getElementById("contact-screen");
+
+const closeContact = document.getElementById("close-contact");
+
+const startProject = document.getElementById("start-project");
+
+
+// =========================
+// MAIN MENU
+// =========================
+
+menuButton.addEventListener("click", () => {
+    menuOverlay.classList.add("active");
+});
+
+closeMenu.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+});
+
+document.querySelector(".close-info").addEventListener("click", () => {
+    aboutScreen.classList.remove("active");
+});
+
+closeContact.addEventListener("click", () => {
+    contactScreen.classList.remove("active");
+});
+
+startProject.addEventListener("click", () => {
+    contactScreen.classList.remove("active");
+    showScreen(questionScreen);
+});
+
+menuItems.forEach((item) => {
+
+    item.addEventListener("click", () => {
+
+        const destination = item.dataset.menu;
+
+        if (destination === "lab") {
+            menuOverlay.classList.remove("active");
+        }
+
+        if (destination === "experiments") {
+            window.location.href = "./archive.html?view=archive";
+        }
+
+        if (destination === "about") {
+    menuOverlay.classList.remove("active");
+    aboutScreen.classList.add("active");
+        }
+
+        if (destination === "contact") {
+            menuOverlay.classList.remove("active");
+            contactScreen.classList.add("active");
+        }
+    });
+
+});
 
 const exitQuestionnaire =
     document.getElementById("exit-questionnaire");
@@ -345,6 +416,42 @@ const experimentData = {
 
         description:
             "A digital identity designed to communicate your brand with clarity and personality."
+    },
+
+    "LANDING PAGES": {
+        number: "EXPERIMENT_005",
+
+        title: "ONE PAGE.<br>ONE PURPOSE.<br>MAX IMPACT.",
+
+        description:
+            "Focused digital experiences designed to turn attention into action."
+    },
+
+    "WEB APPS": {
+        number: "EXPERIMENT_006",
+
+        title: "TURN YOUR<br>IDEA INTO A<br>WORKING SYSTEM.",
+
+        description:
+            "Interactive browser-based applications built around how people actually use them."
+    },
+
+    "UI / UX": {
+        number: "EXPERIMENT_007",
+
+        title: "DESIGN THE<br>WAY PEOPLE<br>EXPERIENCE IT.",
+
+        description:
+            "Interfaces and user experiences designed to feel intuitive, purposeful and memorable."
+    },
+
+    "DIGITAL EXPERIENCES": {
+        number: "EXPERIMENT_008",
+
+        title: "BREAK THE<br>EXPECTED.",
+
+        description:
+            "Experimental digital experiences built to make the web feel different."
     }
 
 };
@@ -416,10 +523,8 @@ const questionnaireData = {
 
         {
             title: "WHAT ARE YOU BUILDING?",
-
             description:
                 "Tell us what we're creating together.",
-
             answers: [
                 "A NEW ONLINE STORE",
                 "AN EXISTING STORE",
@@ -430,10 +535,8 @@ const questionnaireData = {
 
         {
             title: "WHAT DO YOU WANT TO SELL?",
-
             description:
                 "Physical products, digital products, or something else?",
-
             answers: [
                 "PHYSICAL PRODUCTS",
                 "DIGITAL PRODUCTS",
@@ -444,10 +547,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD YOUR STORE DO?",
-
             description:
                 "Choose the features your customers will need.",
-
             answers: [
                 "PRODUCT CATALOG",
                 "ONLINE PAYMENTS",
@@ -458,10 +559,8 @@ const questionnaireData = {
 
         {
             title: "WHO ARE YOU SELLING TO?",
-
             description:
                 "Tell us who we're designing the experience for.",
-
             answers: [
                 "STUDENTS",
                 "EVERYDAY CUSTOMERS",
@@ -472,10 +571,8 @@ const questionnaireData = {
 
         {
             title: "HOW SHOULD IT FEEL?",
-
             description:
                 "Choose the visual direction you have in mind.",
-
             answers: [
                 "PREMIUM",
                 "MODERN",
@@ -486,10 +583,8 @@ const questionnaireData = {
 
         {
             title: "TELL US MORE.",
-
             description:
                 "Have a specific idea, feature, or requirement?",
-
             answers: [
                 "I HAVE MORE TO SAY",
                 "NOTHING ELSE FOR NOW"
@@ -498,10 +593,8 @@ const questionnaireData = {
 
         {
             title: "WHAT'S YOUR BUDGET?",
-
             description:
                 "Give us a range so we can understand the project scope.",
-
             answers: [
                 "₦50K — ₦100K",
                 "₦100K — ₦250K",
@@ -517,10 +610,8 @@ const questionnaireData = {
 
         {
             title: "WHAT DOES YOUR BUSINESS DO?",
-
             description:
                 "Give us a quick idea of what your business is about.",
-
             answers: [
                 "PRODUCTS",
                 "SERVICES",
@@ -531,10 +622,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD YOUR WEBSITE ACHIEVE?",
-
             description:
                 "What's the main result you want from your website?",
-
             answers: [
                 "GET MORE CUSTOMERS",
                 "SHOWCASE MY BUSINESS",
@@ -545,10 +634,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD THE WEBSITE INCLUDE?",
-
             description:
                 "Choose the features that matter most to your business.",
-
             answers: [
                 "SERVICES / PRODUCTS",
                 "CONTACT & INQUIRIES",
@@ -559,10 +646,8 @@ const questionnaireData = {
 
         {
             title: "WHO ARE YOUR CUSTOMERS?",
-
             description:
                 "Who are we building this website to attract?",
-
             answers: [
                 "EVERYDAY CUSTOMERS",
                 "BUSINESSES",
@@ -573,10 +658,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD YOUR BRAND FEEL LIKE?",
-
             description:
                 "Choose the personality you want your website to communicate.",
-
             answers: [
                 "PREMIUM",
                 "MODERN",
@@ -587,10 +670,8 @@ const questionnaireData = {
 
         {
             title: "TELL US MORE.",
-
             description:
                 "Anything specific you'd like us to know?",
-
             answers: [
                 "I HAVE MORE TO SAY",
                 "NOTHING ELSE FOR NOW"
@@ -599,10 +680,8 @@ const questionnaireData = {
 
         {
             title: "WHAT'S YOUR BUDGET?",
-
             description:
                 "Give us a range so we can understand the project scope.",
-
             answers: [
                 "₦50K — ₦100K",
                 "₦100K — ₦250K",
@@ -618,10 +697,8 @@ const questionnaireData = {
 
         {
             title: "WHAT ARE YOU IMAGINING?",
-
             description:
                 "Give us the big picture. What should we build?",
-
             answers: [
                 "A WEB APP",
                 "AN INTERACTIVE EXPERIENCE",
@@ -632,10 +709,8 @@ const questionnaireData = {
 
         {
             title: "WHO IS IT FOR?",
-
             description:
                 "Who will actually use this experience?",
-
             answers: [
                 "CUSTOMERS",
                 "A BUSINESS",
@@ -646,10 +721,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD IT DO?",
-
             description:
                 "Tell us what you want people to be able to do.",
-
             answers: [
                 "INTERACT WITH CONTENT",
                 "CREATE / MANAGE ACCOUNTS",
@@ -660,10 +733,8 @@ const questionnaireData = {
 
         {
             title: "WHAT MATTERS MOST?",
-
             description:
                 "What should the experience prioritize?",
-
             answers: [
                 "SPEED",
                 "DESIGN",
@@ -674,10 +745,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD IT FEEL LIKE?",
-
             description:
                 "Choose the visual direction you're imagining.",
-
             answers: [
                 "FUTURISTIC",
                 "PREMIUM",
@@ -688,10 +757,8 @@ const questionnaireData = {
 
         {
             title: "TELL US MORE.",
-
             description:
                 "Describe anything else you're imagining.",
-
             answers: [
                 "I HAVE MORE TO SAY",
                 "NOTHING ELSE FOR NOW"
@@ -700,10 +767,8 @@ const questionnaireData = {
 
         {
             title: "WHAT'S YOUR BUDGET?",
-
             description:
                 "Give us a range so we can understand the project scope.",
-
             answers: [
                 "₦50K — ₦100K",
                 "₦100K — ₦250K",
@@ -719,10 +784,8 @@ const questionnaireData = {
 
         {
             title: "WHAT ARE WE BUILDING?",
-
             description:
                 "Tell us what kind of digital presence your brand needs.",
-
             answers: [
                 "A BRAND WEBSITE",
                 "A PORTFOLIO",
@@ -733,10 +796,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD PEOPLE FEEL?",
-
             description:
                 "What's the personality you're trying to communicate?",
-
             answers: [
                 "PREMIUM",
                 "MODERN",
@@ -747,10 +808,8 @@ const questionnaireData = {
 
         {
             title: "WHAT SHOULD THE WEBSITE DO?",
-
             description:
                 "Choose what the website needs to accomplish.",
-
             answers: [
                 "SHOWCASE THE BRAND",
                 "GENERATE INQUIRIES",
@@ -761,10 +820,8 @@ const questionnaireData = {
 
         {
             title: "WHO ARE WE SPEAKING TO?",
-
             description:
                 "Who should connect with this brand?",
-
             answers: [
                 "CUSTOMERS",
                 "CLIENTS",
@@ -775,10 +832,8 @@ const questionnaireData = {
 
         {
             title: "WHAT'S THE VISUAL DIRECTION?",
-
             description:
                 "Choose the aesthetic that feels closest to your vision.",
-
             answers: [
                 "LUXURY",
                 "MODERN",
@@ -789,10 +844,8 @@ const questionnaireData = {
 
         {
             title: "TELL US MORE.",
-
             description:
                 "Anything else about the brand or website?",
-
             answers: [
                 "I HAVE MORE TO SAY",
                 "NOTHING ELSE FOR NOW"
@@ -801,10 +854,356 @@ const questionnaireData = {
 
         {
             title: "WHAT'S YOUR BUDGET?",
-
             description:
                 "Give us a range so we can understand the project scope.",
+            answers: [
+                "₦50K — ₦100K",
+                "₦100K — ₦250K",
+                "₦250K — ₦500K",
+                "₦500K+"
+            ]
+        }
 
+    ],
+
+
+    "LANDING PAGES": [
+
+        {
+            title: "WHAT ARE WE PROMOTING?",
+            description:
+                "What is this landing page designed to introduce?",
+            answers: [
+                "A PRODUCT",
+                "A SERVICE",
+                "AN EVENT",
+                "A CAMPAIGN"
+            ]
+        },
+
+        {
+            title: "WHAT'S THE MAIN GOAL?",
+            description:
+                "What should visitors do after seeing the page?",
+            answers: [
+                "MAKE A PURCHASE",
+                "SIGN UP",
+                "SEND AN INQUIRY",
+                "LEARN MORE"
+            ]
+        },
+
+        {
+            title: "WHO ARE WE TARGETING?",
+            description:
+                "Tell us who the landing page needs to speak to.",
+            answers: [
+                "EVERYDAY CUSTOMERS",
+                "BUSINESSES",
+                "A NICHE AUDIENCE",
+                "A NEW AUDIENCE"
+            ]
+        },
+
+        {
+            title: "WHAT SHOULD THE PAGE INCLUDE?",
+            description:
+                "Choose the elements that matter most.",
+            answers: [
+                "PRODUCT / SERVICE DETAILS",
+                "CALL TO ACTION",
+                "TESTIMONIALS",
+                "LEAD FORM"
+            ]
+        },
+
+        {
+            title: "HOW SHOULD IT FEEL?",
+            description:
+                "Choose the visual direction.",
+            answers: [
+                "BOLD",
+                "PREMIUM",
+                "MINIMAL",
+                "HIGH-ENERGY"
+            ]
+        },
+
+        {
+            title: "TELL US MORE.",
+            description:
+                "Anything specific about the campaign or page?",
+            answers: [
+                "I HAVE MORE TO SAY",
+                "NOTHING ELSE FOR NOW"
+            ]
+        },
+
+        {
+            title: "WHAT'S YOUR BUDGET?",
+            description:
+                "Give us a range so we can understand the project scope.",
+            answers: [
+                "₦50K — ₦100K",
+                "₦100K — ₦250K",
+                "₦250K — ₦500K",
+                "₦500K+"
+            ]
+        }
+
+    ],
+
+
+    "WEB APPS": [
+
+        {
+            title: "WHAT ARE WE BUILDING?",
+            description:
+                "Give us the big picture of the application.",
+            answers: [
+                "A CUSTOMER APP",
+                "A BUSINESS TOOL",
+                "A COMMUNITY PLATFORM",
+                "SOMETHING NEW"
+            ]
+        },
+
+        {
+            title: "WHO WILL USE IT?",
+            description:
+                "Tell us who the application is being built for.",
+            answers: [
+                "CUSTOMERS",
+                "BUSINESSES",
+                "A COMMUNITY",
+                "MY TEAM"
+            ]
+        },
+
+        {
+            title: "WHAT SHOULD USERS DO?",
+            description:
+                "Choose the main actions users should be able to perform.",
+            answers: [
+                "CREATE ACCOUNTS",
+                "MANAGE INFORMATION",
+                "BUY / BOOK SOMETHING",
+                "INTERACT WITH OTHERS"
+            ]
+        },
+
+        {
+            title: "WHAT DOES THE SYSTEM NEED?",
+            description:
+                "Choose an important part of the experience.",
+            answers: [
+                "USER DASHBOARD",
+                "DATABASE / DATA",
+                "ADMIN FEATURES",
+                "CUSTOM WORKFLOW"
+            ]
+        },
+
+        {
+            title: "WHAT MATTERS MOST?",
+            description:
+                "Choose the priority for the application.",
+            answers: [
+                "FUNCTIONALITY",
+                "SPEED",
+                "DESIGN",
+                "ALL OF THE ABOVE"
+            ]
+        },
+
+        {
+            title: "TELL US MORE.",
+            description:
+                "Describe anything else the application should do.",
+            answers: [
+                "I HAVE MORE TO SAY",
+                "NOTHING ELSE FOR NOW"
+            ]
+        },
+
+        {
+            title: "WHAT'S YOUR BUDGET?",
+            description:
+                "Give us a range so we can understand the project scope.",
+            answers: [
+                "₦50K — ₦100K",
+                "₦100K — ₦250K",
+                "₦250K — ₦500K",
+                "₦500K+"
+            ]
+        }
+
+    ],
+
+
+    "UI / UX": [
+
+        {
+            title: "WHAT ARE WE DESIGNING?",
+            description:
+                "Tell us what interface we're working on.",
+            answers: [
+                "A WEBSITE",
+                "A WEB APP",
+                "A MOBILE APP",
+                "SOMETHING ELSE"
+            ]
+        },
+
+        {
+            title: "WHO WILL USE IT?",
+            description:
+                "Understanding the user comes first.",
+            answers: [
+                "CUSTOMERS",
+                "BUSINESSES",
+                "A COMMUNITY",
+                "A SPECIFIC AUDIENCE"
+            ]
+        },
+
+        {
+            title: "WHAT SHOULD USERS DO?",
+            description:
+                "What's the most important action in the experience?",
+            answers: [
+                "EXPLORE",
+                "BUY",
+                "SIGN UP",
+                "COMPLETE A TASK"
+            ]
+        },
+
+        {
+            title: "WHAT NEEDS IMPROVEMENT?",
+            description:
+                "Tell us where the current experience falls short.",
+            answers: [
+                "NAVIGATION",
+                "VISUAL DESIGN",
+                "USER FLOW",
+                "THE WHOLE EXPERIENCE"
+            ]
+        },
+
+        {
+            title: "WHAT'S THE VISUAL DIRECTION?",
+            description:
+                "Choose the design language you're imagining.",
+            answers: [
+                "MINIMAL",
+                "MODERN",
+                "PREMIUM",
+                "EXPERIMENTAL"
+            ]
+        },
+
+        {
+            title: "TELL US MORE.",
+            description:
+                "Anything else about the interface or user experience?",
+            answers: [
+                "I HAVE MORE TO SAY",
+                "NOTHING ELSE FOR NOW"
+            ]
+        },
+
+        {
+            title: "WHAT'S YOUR BUDGET?",
+            description:
+                "Give us a range so we can understand the project scope.",
+            answers: [
+                "₦50K — ₦100K",
+                "₦100K — ₦250K",
+                "₦250K — ₦500K",
+                "₦500K+"
+            ]
+        }
+
+    ],
+
+
+    "DIGITAL EXPERIENCES": [
+
+        {
+            title: "WHAT ARE YOU IMAGINING?",
+            description:
+                "Forget the usual website. What should we create?",
+            answers: [
+                "AN INTERACTIVE WEBSITE",
+                "A STORY-DRIVEN EXPERIENCE",
+                "AN EXPERIMENTAL PROJECT",
+                "I'M NOT SURE YET"
+            ]
+        },
+
+        {
+            title: "WHAT'S THE EXPERIENCE ABOUT?",
+            description:
+                "Give us the idea behind the experience.",
+            answers: [
+                "A BRAND",
+                "A PRODUCT",
+                "AN EVENT",
+                "AN IDEA"
+            ]
+        },
+
+        {
+            title: "HOW SHOULD PEOPLE INTERACT?",
+            description:
+                "Choose how visitors should experience it.",
+            answers: [
+                "SCROLL & EXPLORE",
+                "CLICK & DISCOVER",
+                "ANIMATION & MOTION",
+                "SOMETHING COMPLETELY CUSTOM"
+            ]
+        },
+
+        {
+            title: "WHAT SHOULD PEOPLE REMEMBER?",
+            description:
+                "What should the experience leave them with?",
+            answers: [
+                "THE BRAND",
+                "THE STORY",
+                "THE VISUALS",
+                "THE ENTIRE EXPERIENCE"
+            ]
+        },
+
+        {
+            title: "HOW FAR SHOULD WE PUSH IT?",
+            description:
+                "Choose the level of experimentation.",
+            answers: [
+                "SUBTLE",
+                "BOLD",
+                "FUTURISTIC",
+                "NO LIMITS"
+            ]
+        },
+
+        {
+            title: "TELL US MORE.",
+            description:
+                "This is where you can explain the idea in your own words.",
+            answers: [
+                "I HAVE MORE TO SAY",
+                "NOTHING ELSE FOR NOW"
+            ]
+        },
+
+        {
+            title: "WHAT'S YOUR BUDGET?",
+            description:
+                "Give us a range so we can understand the project scope.",
             answers: [
                 "₦50K — ₦100K",
                 "₦100K — ₦250K",
@@ -828,10 +1227,7 @@ beginExperiment.addEventListener("click", () => {
     userAnswers = [];
 
     questionnaireExperiment.textContent =
-        `EXPERIMENT_${selectedProject === "E-COMMERCE" ? "001" :
-        selectedProject === "BUSINESS" ? "002" :
-        selectedProject === "CUSTOM WEB" ? "003" :
-        "004"}`;
+    experimentData[selectedProject].number;
 
     showQuestion();
 
