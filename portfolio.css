@@ -1,0 +1,1138 @@
+/* ========================================
+   SAINT VÖSS LABS
+   PORTFOLIO SYSTEM
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --bg: #080808;
+    --surface: #0d0d0d;
+
+    --text: #f2f0eb;
+
+    --muted: rgba(242, 240, 235, 0.45);
+
+    --bronze: #b48246;
+    --bronze-light: #d5a866;
+
+    --border: rgba(180, 130, 70, 0.25);
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.portfolio-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 2rem 5vw;
+
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.portfolio-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 2rem;
+
+    border-bottom:
+        1px solid rgba(242, 240, 235, 0.08);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.18em;
+
+    color: var(--muted);
+
+}
+
+
+.portfolio-brand {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.archive-intro {
+
+    padding-top: 12vh;
+
+    padding-bottom: 12vh;
+
+}
+
+
+.archive-eyebrow {
+
+    margin-bottom: 2rem;
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.3em;
+
+}
+
+
+.archive-intro h1 {
+
+    font-size: clamp(4rem, 11vw, 11rem);
+
+    line-height: 0.82;
+
+    font-weight: 300;
+
+    letter-spacing: -0.06em;
+
+}
+
+
+.archive-description {
+
+    max-width: 500px;
+
+    margin-top: 3rem;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* ========================================
+   PROJECTS
+======================================== */
+
+.archive-projects {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8rem;
+
+}
+
+
+/* ========================================
+   PROJECT CARD
+======================================== */
+
+.archive-card {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 4rem;
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+.archive-image {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.archive-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease;
+
+}
+
+
+.archive-card:hover .archive-image img {
+
+    transform: scale(1.035);
+
+    opacity: 0.8;
+
+}
+
+
+/* ========================================
+   PROJECT INFO
+======================================== */
+
+.archive-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.archive-meta {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+
+    padding-bottom: 1rem;
+
+    border-bottom:
+        1px solid rgba(242, 240, 235, 0.1);
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.16em;
+
+}
+
+
+.archive-info h2 {
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.archive-info p {
+
+    max-width: 400px;
+
+    margin-top: 2rem;
+
+    color: var(--muted);
+
+    font-size: 0.85rem;
+
+    line-height: 1.8;
+
+}
+
+
+.archive-enter {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 3rem;
+
+    padding-bottom: 0.5rem;
+
+    border-bottom:
+        1px solid rgba(180, 130, 70, 0.5);
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.18em;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.archive-card:hover .archive-enter {
+
+    transform: translateX(8px);
+
+    color: var(--text);
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.portfolio-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 12rem;
+
+    padding: 2rem 0;
+
+    border-top:
+        1px solid rgba(242, 240, 235, 0.08);
+
+    color: var(--muted);
+
+    font-family: monospace;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.portfolio-footer a {
+
+    color: var(--bronze-light);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.portfolio-footer a:hover {
+
+    color: var(--text);
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .portfolio-page {
+
+        padding: 1.5rem;
+
+    }
+
+
+    .portfolio-header {
+
+        font-size: 0.5rem;
+
+    }
+
+
+    .archive-intro {
+
+        padding-top: 10vh;
+
+        padding-bottom: 8vh;
+
+    }
+
+
+    .archive-intro h1 {
+
+        font-size: clamp(4rem, 20vw, 8rem);
+
+    }
+
+
+    .archive-description {
+
+        margin-top: 2rem;
+
+    }
+
+
+    .archive-projects {
+
+        gap: 6rem;
+
+    }
+
+
+    .archive-card {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 2rem;
+
+    }
+
+
+    .archive-image {
+
+        aspect-ratio: 4 / 3;
+
+    }
+
+
+    .archive-info h2 {
+
+        font-size: clamp(2.5rem, 12vw, 5rem);
+
+    }
+
+
+    .archive-meta {
+
+        flex-direction: column;
+
+        gap: 0.5rem;
+
+    }
+
+
+    .portfolio-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 1rem;
+
+        margin-top: 8rem;
+
+    }
+
+}
+
+/* ========================================
+   CASE STUDY PAGES
+======================================== */
+
+.case-study {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 2rem 5vw;
+
+}
+
+
+/* ========================================
+   CASE HEADER
+======================================== */
+
+.case-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 2rem;
+
+    border-bottom:
+        1px solid rgba(242, 240, 235, 0.08);
+
+    color: var(--muted);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.case-header a {
+
+    color: var(--bronze-light);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.case-header a:hover {
+
+    color: var(--text);
+
+}
+
+
+/* ========================================
+   CASE HERO
+======================================== */
+
+.case-hero {
+
+    padding-top: 12vh;
+
+}
+
+
+.case-hero > p {
+
+    margin-bottom: 2rem;
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+.case-hero h1 {
+
+    font-size: clamp(4rem, 12vw, 12rem);
+
+    line-height: 0.8;
+
+    font-weight: 300;
+
+    letter-spacing: -0.07em;
+
+}
+
+
+.case-hero-image {
+
+    width: 100%;
+
+    margin-top: 10vh;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+}
+
+
+.case-hero-image img {
+
+    width: 100%;
+
+    display: block;
+
+}
+
+
+/* ========================================
+   CASE SECTIONS
+======================================== */
+
+.case-section {
+
+    display: grid;
+
+    grid-template-columns: 0.4fr 1fr;
+
+    gap: 5rem;
+
+    padding: 12rem 0;
+
+    border-bottom:
+        1px solid rgba(242, 240, 235, 0.08);
+
+}
+
+
+.case-label {
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+.case-content {
+
+    max-width: 850px;
+
+}
+
+
+.case-content h2 {
+
+    font-size: clamp(2.8rem, 6vw, 7rem);
+
+    line-height: 0.92;
+
+    font-weight: 300;
+
+    letter-spacing: -0.05em;
+
+}
+
+
+.case-content p {
+
+    max-width: 650px;
+
+    margin-top: 3rem;
+
+    color: var(--muted);
+
+    font-size: 0.95rem;
+
+    line-height: 1.9;
+
+}
+
+
+/* ========================================
+   FEATURE LIST
+======================================== */
+
+.feature-list {
+
+    margin-top: 4rem;
+
+    border-top:
+        1px solid rgba(242, 240, 235, 0.1);
+
+}
+
+
+.feature-list div {
+
+    padding: 1.5rem 0;
+
+    border-bottom:
+        1px solid rgba(242, 240, 235, 0.1);
+
+    color: var(--text);
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* ========================================
+   TOOLS
+======================================== */
+
+.tools {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+
+    margin-top: 3rem;
+
+}
+
+
+.tools span {
+
+    padding: 0.8rem 1rem;
+
+    border: 1px solid var(--border);
+
+    color: var(--bronze-light);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.case-cta {
+
+    padding: 12rem 0;
+
+    text-align: center;
+
+}
+
+
+.case-cta p {
+
+    margin-bottom: 2rem;
+
+    color: var(--muted);
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+.case-cta a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: clamp(2rem, 5vw, 5rem);
+
+    letter-spacing: -0.04em;
+
+    border-bottom:
+        1px solid var(--bronze);
+
+    padding-bottom: 0.5rem;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.case-cta a:hover {
+
+    color: var(--bronze-light);
+
+}
+
+
+/* ========================================
+   CASE FOOTER
+======================================== */
+
+.case-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 2rem 0 4rem;
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.case-footer a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.case-footer a:hover {
+
+    color: var(--bronze-light);
+
+}
+
+
+/* ========================================
+   MOBILE CASE STUDY
+======================================== */
+
+@media (max-width: 800px) {
+
+    .case-study {
+
+        padding: 1.5rem;
+
+    }
+
+
+    .case-hero {
+
+        padding-top: 10vh;
+
+    }
+
+
+    .case-hero h1 {
+
+        font-size: clamp(4rem, 20vw, 8rem);
+
+    }
+
+
+    .case-hero-image {
+
+        margin-top: 7vh;
+
+    }
+
+
+    .case-section {
+
+        display: block;
+
+        padding: 7rem 0;
+
+    }
+
+
+    .case-label {
+
+        margin-bottom: 3rem;
+
+    }
+
+
+    .case-content h2 {
+
+        font-size: clamp(2.8rem, 13vw, 6rem);
+
+    }
+
+
+    .case-content p {
+
+        margin-top: 2rem;
+
+    }
+
+
+    .case-footer {
+
+        flex-direction: column;
+
+        gap: 1.5rem;
+
+    }
+
+
+    .case-cta {
+
+        padding: 8rem 0;
+
+    }
+
+}
+
+
+/* =========================================
+   CASE STUDY GALLERY
+========================================= */
+
+.case-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    margin: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(180, 130, 70, 0.12);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.025);
+}
+
+.gallery-wide {
+    grid-column: 1 / -1;
+}
+
+.gallery-item figcaption {
+    padding: 0.9rem 1rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+}
+
+@media (max-width: 700px) {
+
+    .case-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery-wide {
+        grid-column: auto;
+    }
+
+    .gallery-item figcaption {
+        font-size: 0.55rem;
+        padding: 0.75rem;
+    }
+
+}
+
+/* =========================================
+   ARCHIVE CARDS — POLISH
+========================================= */
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.archive-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(180, 130, 70, 0.14);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
+}
+
+.archive-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(180, 130, 70, 0.45);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* IMAGE */
+
+.archive-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #0b0b0b;
+}
+
+.archive-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.archive-card:hover .archive-image img {
+    transform: scale(1.035);
+}
+
+
+/* EXPERIMENT NUMBER */
+
+.archive-index {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    padding: 0.45rem 0.65rem;
+
+    font-family: monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* CARD CONTENT */
+
+.archive-card-content {
+    padding: 1.6rem;
+}
+
+.archive-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    margin-bottom: 1rem;
+
+    font-family: monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.13em;
+
+    color: var(--bronze-light);
+}
+
+.archive-card-content h2 {
+    margin: 0 0 0.8rem;
+
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: 0.04em;
+}
+
+.archive-card-content p {
+    max-width: 500px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.archive-view {
+    display: inline-block;
+
+    margin-top: 1.5rem;
+
+    font-family: monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+
+    color: var(--text);
+
+    border-bottom: 1px solid rgba(180, 130, 70, 0.45);
+    padding-bottom: 0.45rem;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.archive-card:hover .archive-view {
+    color: var(--bronze-light);
+    border-color: var(--bronze-light);
+    transform: translateX(5px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .archive-card-content {
+        padding: 1.25rem;
+    }
+
+    .archive-card-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .archive-card-content p {
+        font-size: 0.85rem;
+    }
+
+}
